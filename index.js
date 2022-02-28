@@ -136,7 +136,7 @@ const newIntern = () => {
     },
     {
       type: "input",
-      name: "id",
+      name: "new",
       message: "What is the id of the intern'?",
       validate: (name) => {
         if (name) {
