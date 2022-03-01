@@ -1,9 +1,9 @@
 const inquirer = require("inquirer");
-const generatePage = require("./src/page-template");
-const writeFile = require("./utils/generatesite")
+// const generatePage = require("./src/page-template");
+// const writeFile = require("./utils/generatesite")
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
-const Intern = require("./lib/Intern ");
+const Intern = require("./lib/Intern");
 
 let arr = [];
 
@@ -62,13 +62,10 @@ const newManager = () => {
       },
     },
   ])
-  .then( manager => {
-      arr.push(manager);
-      newEngineer();
+  .then( ({name,id,email,office}) => {
+      arr.push(new Manager(name,id,email,office));
 });
 }
-
-newManager();
 
 const newEngineer = () => {
   return inquirer.prompt([
@@ -124,7 +121,7 @@ const newEngineer = () => {
         }
       },
     },
-  ]);
+  ]).then(({name,id,email,git})=>arr.push(new Engineer(name,id,email,git)));
 };
 
 const newIntern = () => {
@@ -144,7 +141,7 @@ const newIntern = () => {
     },
     {
       type: "input",
-      name: "new",
+      name: "id",
       message: "What is the id of the intern'?",
       validate: (name) => {
         if (name) {
@@ -170,7 +167,7 @@ const newIntern = () => {
     },
     {
       type: "input",
-      name: "git",
+      name: "school",
       message: "What university does the intern go to'?",
       validate: (name) => {
         if (name) {
@@ -181,32 +178,37 @@ const newIntern = () => {
         }
       },
     },
-  ]);
+  ]).then(({name,id,email,school})=>arr.push(new Intern(name,id,email,school)));
 };
 
-const newEmployee = () => {
-  return inquirer.prompt([
-    {
-      type: "input",
-      name: "git",
-      message: "Would you like to add a new engineer, intern, or conclude'?",
-      choices: ["Engineer, Intern, finish"],
-      validate: (name) => {
-        if (name) {
-          return true;
-        }
-      },
-    },
-  ])
-  .then(employee => {
-    if (employee === "Engineer") {
-        newEngineer();
-    } else if(employee === "Intern") { 
-        newIntern()
-    } else {
+// const newEmployee = () => {
+//   return inquirer.prompt([
+//     {
+//       type: "input",
+//       name: "git",
+//       message: "Would you like to add a new engineer, intern, or conclude'?",
+//       choices: ["Engineer, Intern, finish"],
+//       validate: (name) => {
+//         if (name) {
+//           return true;
+//         }
+//       },
+//     },
+//   ])
+//   .then(employee => {
+//     if (employee === "Engineer") {
+//         newEngineer();
+//     } else if(employee === "Intern") { 
+//         newIntern()
+//     } else {
         
-    }
-})
-};
+//     }
+// })
+// };
 
-
+newManager()
+.then(newEngineer)
+.then(newEngineer)
+.then(newEngineer)
+.then(newIntern)
+.then(()=>console.log(arr));
