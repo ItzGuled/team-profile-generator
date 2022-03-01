@@ -5,6 +5,8 @@ const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern ");
 
+let arr = [];
+
 const newManager = () => {
   return inquirer.prompt([
     {
@@ -59,8 +61,14 @@ const newManager = () => {
         }
       },
     },
-  ]);
-};
+  ])
+  .then( manager => {
+      arr.push(manager);
+      newEngineer();
+});
+}
+
+newManager();
 
 const newEngineer = () => {
   return inquirer.prompt([
@@ -189,5 +197,16 @@ const newEmployee = () => {
         }
       },
     },
-  ]);
+  ])
+  .then(employee => {
+    if (employee === "Engineer") {
+        newEngineer();
+    } else if(employee === "Intern") { 
+        newIntern()
+    } else {
+        
+    }
+})
 };
+
+
