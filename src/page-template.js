@@ -9,10 +9,10 @@ const generateAbout = (teamArr) => {
             <div class="card-body">
             <div class="bg-dark container p-2 px-3 text-white">
             <h5 class="card-title">${name}</h5>
-            <h6 class="card-subtitle mb-2 text-white">Manager</h6>
+            <h6 class="card-subtitle mb-2 text-white"><i class="icofont-coffee-mug"></i>Manager</h6>
             </div>
             <ul class="list-unstyled">
-            <li>Id: ${id} </li>
+            <li>ID: ${id} </li>
             Email:
             <a  href="mailto:${email}" class="text-decoration-none">${email}</a>
             <li> Office Number: ${officeNumber}</li>
@@ -34,10 +34,10 @@ const generateAbout = (teamArr) => {
               <h6 class="card-subtitle mb-2 text-white">Engineer</h6>
               </div>
               <ul class="list-unstyled">
-              <li>Id: ${id} </li>
+              <li>ID: ${id} </li>
               Email: 
               <a href="mailto:${email}" class="text-decoration-none">${email}</a><br>
-              Github:
+              GitHub:
               <a href="https://www.github.com/${github}" class="text-decoration-none"> ${github}</a>
               </ul>
               </div>
@@ -57,7 +57,7 @@ const generateAbout = (teamArr) => {
                   <h6 class="card-subtitle mb-2 text-white">Intern</h6>
                   </div>
                   <ul class="list-unstyled">
-                  <li>Id: ${id} </li>
+                  <li>ID: ${id} </li>
                   Email: 
                   <a href="mailto:${email}" class="text-decoration-none">${email}</a>
                   <li> School: ${university}</li>
