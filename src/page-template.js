@@ -7,13 +7,18 @@ const generateAbout = (teamArr) => {
             return `
             <div class="card" style="width: 18rem;">
             <div class="card-body">
+            <div class="bg-dark container p-2 px-3 text-white">
             <h5 class="card-title">${name}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Manager</h6>
-            <ul>
+            <h6 class="card-subtitle mb-2 text-white">Manager</h6>
+            </div>
+            <ul class="list-unstyled">
             <li>Id: ${id} </li>
-            <li>Email: ${email} </li>
+            Email:
+            <a  href="mailto:${email}" class="text-decoration-none">${email}</a>
             <li> Office Number: ${officeNumber}</li>
             </ul>
+            </div>
+            </div>
           `;
           })
           .join("")}
@@ -24,13 +29,19 @@ const generateAbout = (teamArr) => {
               return `
               <div class="card" style="width: 18rem;">
               <div class="card-body">
+              <div class="bg-dark p-2 px-3 text-white">
               <h5 class="card-title">${name}</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Engineer</h6>
-              <ul>
+              <h6 class="card-subtitle mb-2 text-white">Engineer</h6>
+              </div>
+              <ul class="list-unstyled">
               <li>Id: ${id} </li>
-              <li>Email: ${email} </li>
-              <li> Git: ${github}</li>
+              Email: 
+              <a href="mailto:${email}" class="text-decoration-none">${email}</a><br>
+              Github:
+              <a href="https://www.github.com/${github}" class="text-decoration-none"> ${github}</a>
               </ul>
+              </div>
+              </div>
             `;
             })
             .join("")}
@@ -41,13 +52,18 @@ const generateAbout = (teamArr) => {
                 return `
                   <div class="card" style="width: 18rem;">
                   <div class="card-body">
+                  <div class="bg-dark p-2 px-3 text-white">
                   <h5 class="card-title">${name}</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Intern</h6>
-                  <ul>
+                  <h6 class="card-subtitle mb-2 text-white">Intern</h6>
+                  </div>
+                  <ul class="list-unstyled">
                   <li>Id: ${id} </li>
-                  <li>Email: ${email} </li>
+                  Email: 
+                  <a href="mailto:${email}" class="text-decoration-none">${email}</a>
                   <li> School: ${university}</li>
                   </ul>
+                  </div>
+                  </div>
                 `;
               })
               .join("")}
@@ -67,23 +83,17 @@ module.exports = (Data) => {
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <title>Portfolio Demo</title>
 
-       <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-      crossorigin="anonymous"
-      />
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+      <link rel="stylesheet" href="./icofont/icofont.min.css" />
 <link rel="stylesheet" href="style.css">
     </head>
     
 <body>
       <header>
         
-          <h1 class="page-title text-secondary text-center bg-dark p-2 px-3">My Team</h1>
-
-        
-      </header>
-      <main class="container d-flex justify-content-center">
+          <h1 class="page-title text-white text-center bg-dark p-2 px-3">My Team</h1>
+</header>
+      <main class=" container d-flex justify-content-center dis list-unstyled ">
         ${generateAbout(Data)}
       </main>
       <footer>
