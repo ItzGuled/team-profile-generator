@@ -191,31 +191,6 @@ const newIntern = () => {
     );
 };
 
-// const newEmployee = () => {
-//   return inquirer.prompt([
-//     {
-//       type: "input",
-//       name: "git",
-//       message: "Would you like to add a new engineer, intern, or conclude'?",
-//       choices: ["Engineer, Intern, finish"],
-//       validate: (name) => {
-//         if (name) {
-//           return true;
-//         }
-//       },
-//     },
-//   ])
-//   .then(employee => {
-//     if (employee === "Engineer") {
-//         newEngineer();
-//     } else if(employee === "Intern") {
-//         newIntern()
-//     } else {
-
-//     }
-// })
-// };
-// console.log(generatePage())
 newManager()
   .then(newEngineer)
   .then(newEngineer)
