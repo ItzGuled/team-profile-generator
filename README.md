@@ -8,6 +8,8 @@ This project motivated me to understand more of backend with node inputs. It was
 
 The biggest challenge of this assignment was actually getting the page template to do what was intended. I had issues with parts of the team would accumulate in the HTML and missing some of the answers that were made. M
 
+## HTML Sample
+https://itzguled.github.io/team-profile-generator/
 
 ## Walkthrough
 https://drive.google.com/file/d/1A0kOjAkpjycUF06P8MZ0vry03gbVHHjl/view
